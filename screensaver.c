@@ -2,9 +2,6 @@
 #include <time.h>
 #include "screensaver.h"
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmissing-noreturn"
-
 void color_rgb(unsigned short r, unsigned short g, unsigned short b, XColor *color) {
     color->flags = DoRed | DoGreen | DoBlue;
     color->red = r;
@@ -29,6 +26,8 @@ void allocate_colors(Display *display, XColor colors[]) {
     }
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
 int main() {
     time_t t;
     srandom((unsigned) time(&t));
