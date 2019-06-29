@@ -43,16 +43,16 @@ int main() {
     allocate_colors(display, xcolors);
 
     while (1) {
-        XSetForeground(display, gc, xcolors[random() % NCOLORS].pixel);
-        XFillRectangle(display, root, gc, random() % (wa.width - 100), random() % (wa.height - 100), 100, 100);
-
-        /* once in a while, clear all */
-        if (random() % 1000 < 1) {
-            XClearWindow(display, root);
+        XClearWindow(display, root);
+        for (int i = 0; i < 100; i ++) {
+            XPoint point;
+            point.x = random() % wa.width;
+            point.y = random() % wa.height;
+            XSetForeground(display, gc, xcolors[random() % NCOLORS].pixel);
+            XFillRectangle(display, root, gc, point.x, point.y, 30, 30);
         }
-
         XFlush(display);
-        usleep(1000);
+        usleep(10000);
     }
 
     XCloseDisplay(display);
