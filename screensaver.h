@@ -11,7 +11,7 @@
 
 #include "./vroot.h"
 
-#define NCOLORS 8
+#define NCOLORS 32
 
 void color_rgb(unsigned short r, unsigned short g, unsigned short b, XColor *color);
 void allocate_colors(Display *display, XColor colors[]);
