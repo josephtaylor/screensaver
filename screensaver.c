@@ -49,7 +49,7 @@ int main() {
             point.x = random() % wa.width;
             point.y = random() % wa.height;
             XSetForeground(display, gc, xcolors[random() % NCOLORS].pixel);
-            XFillRectangle(display, root, gc, point.x, point.y, 30, 30);
+            XFillArc(display, root, gc, point.x - (30 - 2), point.y - (30 - 2), 30, 30, 0, 360*64);
         }
         XFlush(display);
         usleep(10000);
